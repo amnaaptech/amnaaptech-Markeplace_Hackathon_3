@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { getCartItems } from "@/app/actions/action";
+import { getCartItems } from "../actions/action";
 import { Product } from "../../../types/product";
 
 interface CartState {

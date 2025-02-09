@@ -467,7 +467,7 @@ import { groq } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
 import { Product } from "../../../../types/product";
 import { addToCart } from "@/app/actions/action";
-import { useCartStore } from "@/app/store/cartStore.ts";
+import { useCartStore } from "@/app/store/cartStore";
 import Swal from "sweetalert2";
 import { addToWishlist,removeFromWishlist ,getWishlistItems } from "@/app/actions/action";
 import { FaHeart } from "react-icons/fa";
@@ -588,9 +588,7 @@ useEffect(() => {
   
   return (
     <section className="max-w-[1280px] mx-auto caret-transparent">
-      {/* <div className="max-w-7xl mx-auto px-6 py-10"> old */}
       <div className="px-4 md:px-8 lg:px-12 py-8">
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> old */}
         <div className="flex flex-col md:flex-row md:items-center md:gap-8 lg:h-[600px] mt-7">
           <div className="w-full md:w-1/2 h-full">
             {product.image && (
@@ -775,10 +773,6 @@ useEffect(() => {
     </div>
   </div>
 </div>
-
-
-
-
       </div>
     </section>
   );

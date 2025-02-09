@@ -1,4 +1,4 @@
-//1st code
+
 "use client";
 import { Product } from "../../../types/product";
 import React, { useEffect, useState } from "react";

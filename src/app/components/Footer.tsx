@@ -57,10 +57,6 @@ const Footer = () => {
                   type="submit"
                   className="px-4 justify-between py-2 bg-white text-[#251742] rounded-r w-[20%] md:w-[100] h-[40] hover:bg-gray-200"
                 >
-
-
-                  {/* md:w-[509px] h-[56px] outline-none bg-[#FFFFFF26] pb-1 w-[70%] pl-4  */}
-                  {/* text-[#2A254B] w-[30%] md:w-[118px] h-[56px]  bg-[#FFFFFF]  */}
                   Sign up
                 </button>
               </form>

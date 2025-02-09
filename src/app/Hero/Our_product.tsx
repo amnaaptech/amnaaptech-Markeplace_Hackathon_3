@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Product } from "../../../types/product";
-import { allProducts, four, three } from "@/sanity/lib/queries";
+import { three } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Swal from "sweetalert2";

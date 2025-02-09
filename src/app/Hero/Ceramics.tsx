@@ -1,90 +1,9 @@
-// import Image from "next/image";
-// import React, { useEffect, useState } from "react";
-// import Link from "next/link";
-// import { Product } from "../../../types/product";
-// import { allProducts, four } from "@/sanity/lib/queries";
-// import { client } from "@/sanity/lib/client";
-// import { urlFor } from "@/sanity/lib/image";
-// import { addToCart } from "../actions/action";
-// import Swal from "sweetalert2";
-
-
-
-// const Ceramics = () => {
-
-//   const [product, setProduct] = useState<Product[]>([]);
-//   useEffect(() => {
-//     async function fetchproduct() {
-//       // const fetched : Product[] = await client.fetch(four)
-//       const fetched: Product[] = await client.fetch(allProducts)
-//       setProduct(fetched)
-//     }
-//     fetchproduct();
-//   }, [])
-
-//   const handelAddToCart = (e: React.MouseEvent, product: Product) => {
-//     e.preventDefault()
-//     Swal.fire({
-//       position: "top-center",
-//       icon: "success",
-//       title: `${product.name}added to cart `,
-//       timer: 1000,
-
-//     })
-//     addToCart(product)
-//   }
-//   return (
-//     <section>
-//       <div className="px-4 md:px-8 py-12 text-[#2A254B] mt-12">
-//         {/* Title */}
-//         <h1 className="text-2xl font-semibold mb-2">New Ceramics</h1>
-//         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-//           {product.map((product) => (
-//             <div key={product._id} className="border rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300 ">
-//               <Link href={`/product/${product.slug.current}`}>
-//                 {product.image && (
-//                   <Image src={urlFor(product.image).url()}
-//                     alt="image"
-//                     width={300}
-//                     height={300}
-//                     className="w-full h-48 object-cover rounded-md"
-//                   />
-//                 )}
-//                 <h1 className="text-g font-semibold mt-4">{product.name}</h1>
-//                 <p className="text-[#2A254B] mt-2">
-//                   {product.price ? `$${product.price}` : "Price is not available"}
-//                 </p>
-
-//                 {/* Add to card button */}
-//                 <button className="bg-gradient-to-r from-[#2A254B] to-gray-200 text-black font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out" onClick={(e) => handelAddToCart(e, product)}>Add To Cart</button>
-
-//                 {/* <p className="mt-5">{product.description}</p> */}
-//               </Link>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* View Collection Button */}
-//         <div className="my-10 flex justify-center items-center">
-//           <button className="bg-[#F9F9F9] py-4 px-6 rounded-[5px] text-[#2A254B]">
-//             View collection
-//           </button>
-//         </div>
-//       </div>
-//     </section>
-
-
-//   )
-// }
-// export default Ceramics;
-
-
-// new wishlist code
+"use client"
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Product } from "../../../types/product";
-import { allProducts, four } from "@/sanity/lib/queries";
+import {  four } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Swal from "sweetalert2";

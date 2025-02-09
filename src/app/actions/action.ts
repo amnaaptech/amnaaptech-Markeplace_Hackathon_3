@@ -1,6 +1,5 @@
-
+"use cnlient"
 import { Product } from "../../../types/product";
-
 export const addToCart = (product: Product) => {
   const cart: Product[] = JSON.parse(localStorage.getItem('cart') || "[]")
   const existingProductIndex = cart.findIndex(item => item._id === product._id)
@@ -32,9 +31,32 @@ export const updateQuantity = (productId: string, quantity: number) => {
 
 
 
-export const getCartItems = () : Product[] => {
-  return JSON.parse(localStorage.getItem('cart') || '[]')
+// export const getCartItems = () : Product[] => {
+//   return JSON.parse(localStorage.getItem('cart') || '[]')
+// }
+
+// export default function getCartItems() {
+//   const [cartItems, setCartItems] = useState([]);
+
+//   useEffect(() => {
+//     if (typeof window !== "undefined") {
+//       const items = localStorage.getItem("cart");
+//       setCartItems(items ? JSON.parse(items) : []);
+//     }
+//   }, []);
+
+//   return cartItems;
+// }
+
+export function getCartItems() {
+  if (typeof window === "undefined") return []; // Agar SSR hai, toh empty array return kar do
+
+  const items = localStorage.getItem("cart");
+  return items ? JSON.parse(items) : [];
 }
+
+
+
 
 
 export function addToWishlist(product: Product) {
