@@ -12,7 +12,6 @@ import AuthGuard from "../components/AuthGuard";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
-  const { cart, updateCart } = useCartStore();
   useEffect(() => {
     setCartItems(getCartItems());
   }, []);
