@@ -1,6 +1,6 @@
 
 "use client";
-import { useUser ,SignedOut,SignInButton,SignedIn,SignOutButton} from "@clerk/nextjs"
+import { useUser,SignedIn,SignOutButton} from "@clerk/nextjs"
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
