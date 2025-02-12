@@ -104,6 +104,7 @@ interface Product {
   image?: { asset: { _ref: string; _type: "image" } }; // Image object structure
 }
 
+
 // Define a type for wishlist items
 interface WishlistItem {
   _id: string;
@@ -111,6 +112,8 @@ interface WishlistItem {
   price: number;
   image: string; // Ensuring image is a string (URL)
 }
+
+  
 
 const WishlistPage = () => {
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
