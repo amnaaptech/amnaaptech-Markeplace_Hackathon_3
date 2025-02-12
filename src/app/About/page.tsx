@@ -35,7 +35,7 @@ const About = () => {
         </div>
         {/* Right Side */}
         <div className="w-full md:w-[634px] md:h-[478px] sm:w-[324px] sm:h-[259px] sm:top-[337px] sm:left-[24px]">
-          <img
+          <Image
             src="/images/About1.png"
             alt="Story Section"
             className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105 hover:translate-y-1"
