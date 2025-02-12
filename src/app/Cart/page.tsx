@@ -6,13 +6,12 @@ import { getCartItems, removeFromCart, updateQuantity } from "../actions/action"
 import Image from "next/image";
 import Swal from "sweetalert2";
 import { urlFor } from "@/sanity/lib/image";
-import { useCartStore } from "../store/cartStore";
 import { useRouter } from "next/navigation";
 import AuthGuard from "../components/AuthGuard";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
-  const { cart, updateCart } = useCartStore();
+
   useEffect(() => {
     setCartItems(getCartItems());
   }, []);
