@@ -10,7 +10,7 @@ import {CgChevronRight} from 'react-icons/cg'
 import Swal from 'sweetalert2';
 import { client } from '@/sanity/lib/client';
 
-const page = () => {
+const CheckoutPage = () => {
     const [cartItems,setCartItems] = useState<Product[]>([]);
     const [discount,setDiscount] = useState<number>(0)
     const [formValues, setFormValues] = useState({
@@ -349,4 +349,4 @@ Swal.fire({
 )
 }
 
-export default page
+export default CheckoutPage
