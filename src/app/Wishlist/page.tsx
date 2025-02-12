@@ -8,6 +8,13 @@ import { urlFor } from "@/sanity/lib/image";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
+// Define a type for wishlist items
+interface WishlistItem {
+  _id: string;
+  name: string;
+  price: number;
+  image: any;}
+
 const WishlistPage = () => {
   const [wishlist, setWishlist] = useState<any[]>([]);
   const router = useRouter();
