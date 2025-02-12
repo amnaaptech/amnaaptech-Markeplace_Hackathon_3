@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+
 
 export default {
   name: 'order',
