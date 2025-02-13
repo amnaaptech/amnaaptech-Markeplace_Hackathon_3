@@ -93,6 +93,7 @@
 "use client";
 import { Product } from "../../../types/product";
 
+// Add to cart
 export const addToCart = (product: Product) => {
   const cart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]");
   const existingProductIndex = cart.findIndex((item) => item._id === product._id);
@@ -108,18 +109,18 @@ export const addToCart = (product: Product) => {
 
 // Remove from cart
 export const removeFromCart = (productId: string) => {
-  let cart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]");
-  cart = cart.filter((item) => item._id !== productId);
-  localStorage.setItem("cart", JSON.stringify(cart));
+  const cart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]"); // ✅ Changed 'let' to 'const'
+  const updatedCart = cart.filter((item) => item._id !== productId); // ✅ Use a new variable instead of reassigning
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
 };
 
 // Update quantity
 export const updateQuantity = (productId: string, quantity: number) => {
-  let cart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]");
+  const cart: Product[] = JSON.parse(localStorage.getItem("cart") || "[]"); // ✅ Use 'const' for initial assignment
   const productIndex = cart.findIndex((item) => item._id === productId);
 
   if (productIndex > -1) {
-    cart[productIndex].quantity = quantity;
+    cart[productIndex] = { ...cart[productIndex], quantity }; // ✅ Use spread syntax to update immutably
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 };
@@ -134,8 +135,6 @@ export function getCartItems(): Product[] {
 // Add to wishlist
 export function addToWishlist(product: Product) {
   const wishlist: Product[] = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
-  // Find the existing product in the wishlist
   const existingProductIndex = wishlist.findIndex((item) => item._id === product._id);
 
   if (existingProductIndex === -1) {
@@ -153,7 +152,6 @@ export function getWishlistItems(): Product[] {
 export function removeFromWishlist(productId: string) {
   const wishlist: Product[] = getWishlistItems();
   const updatedWishlist = wishlist.filter((item) => item._id !== productId);
-
   localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
 }
 
