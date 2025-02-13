@@ -33,3 +33,12 @@ export interface Product{
 
     productType:string;
 }
+
+
+// ✅ Define and export WishlistItem
+export interface WishlistItem {
+    _id: string;
+    name: string;
+    price: number;
+    image: string; // Ensuring image is a string URL
+  }

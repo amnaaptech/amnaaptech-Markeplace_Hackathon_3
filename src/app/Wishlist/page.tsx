@@ -88,61 +88,42 @@
 
 // export default WishlistPage;
 "use client";
-
 import { useEffect, useState } from "react";
-import { getWishlistItems, removeFromWishlist } from "@/app/actions/action";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-
-// Define the Product type based on Sanity data
-interface Product {
-  _id: string;
-  name: string;
-  price: number;
-  image?: { asset: { _ref: string; _type: "image" } }; // Image object structure
-}
-
-
-// Define a type for wishlist items
-interface WishlistItem {
-  _id: string;
-  name: string;
-  price: number;
-  image: string; // Ensuring image is a string (URL)
-}
-
-  
+import Swal from "sweetalert2";
+import Image from "next/image";
+import { Product, WishlistItem } from "../../../types/product";
+import { getWishlistItems, removeFromWishlist } from "@/app/actions/action";
+import { urlFor } from "@/sanity/lib/image";
 
 const WishlistPage = () => {
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch wishlist and map it to WishlistItem type
-    const items: WishlistItem[] = getWishlistItems().map((product: Product) => ({
-      _id: product._id,
-      name: product.name,
-      price: product.price,
-      image: product.image ? urlFor(product.image).url() : "", // Convert to URL
-    }));
+    // Fetch wishlist items correctly
+    const fetchWishlist = async () => {
+      const products: Product[] = getWishlistItems(); // Fetch products
 
-    setWishlist(items);
+      // Convert products to WishlistItem[]
+      const items: WishlistItem[] = products.map((product) => ({
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.image ? urlFor(product.image).url() : "", // Ensure image is a string
+      }));
+
+      setWishlist(items);
+    };
+
+    fetchWishlist();
   }, []);
 
   const handleRemove = (productId: string) => {
     removeFromWishlist(productId);
-    
-    // Update wishlist after removal
-    const updatedItems: WishlistItem[] = getWishlistItems().map((product: Product) => ({
-      _id: product._id,
-      name: product.name,
-      price: product.price,
-      image: product.image ? urlFor(product.image).url() : "", // Convert to string URL
-    }));
 
-    setWishlist(updatedItems);
+    // Update wishlist after removal
+    setWishlist((prev) => prev.filter((item) => item._id !== productId));
 
     Swal.fire({
       position: "center",
