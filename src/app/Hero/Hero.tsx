@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <div className='xl:w-[602px] w-full h- md:h-fit break-words xl:ml-[60px]'>
           <p className='text-[18px] lg:text-[18px] satoshi text-[#FFFFFF] font-[400] leading-[27px] break-words tracking-wider] md:text-2xl'>A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.</p>
-          <Link href='/'>
+          <Link href='/Allproducts'>
             <button className='mt-10 mb-8 md:hidden md:w-[170px] w-full h-[56px] bg-[#F9F9F926] text-[#FFFFFF] font-[400] text-[1rem] leading-6 satoshi tracking-wider hover:bg-[#4a393978] md:text-[3rem] lg:text-[1rem]'>
               View Collections
             </button>
