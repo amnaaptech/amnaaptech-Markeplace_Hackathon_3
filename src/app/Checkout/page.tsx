@@ -130,7 +130,7 @@ Swal.fire({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center gap-2 py-4">
           <Link
-            href="/cart"
+            href="/Cart"
             className="text-[#666666] hover:text-black transition text-sm"
           >
             Cart

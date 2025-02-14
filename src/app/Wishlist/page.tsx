@@ -92,7 +92,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import Image from "next/image";
-import { Product, WishlistItem } from "../../../types/product";
+import { Product } from "../../../types/product";
 import { getWishlistItems, removeFromWishlist } from "@/app/actions/action";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -101,18 +101,17 @@ interface WishlistItem {
   _id: string;
   name: string;
   price: number;
-  image: any;}
+  image: string; // Changed from any to string
+}
 
 const WishlistPage = () => {
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch wishlist items correctly
     const fetchWishlist = async () => {
-      const products: Product[] = getWishlistItems(); // Fetch products
+      const products: Product[] = getWishlistItems();
 
-      // Convert products to WishlistItem[]
       const items: WishlistItem[] = products.map((product) => ({
         _id: product._id,
         name: product.name,
@@ -128,8 +127,6 @@ const WishlistPage = () => {
 
   const handleRemove = (productId: string) => {
     removeFromWishlist(productId);
-
-    // Update wishlist after removal
     setWishlist((prev) => prev.filter((item) => item._id !== productId));
 
     Swal.fire({
@@ -178,7 +175,6 @@ const WishlistPage = () => {
         </div>
       )}
 
-      {/* Back Button */}
       <button
         onClick={() => router.back()}
         className="bg-gray-800 text-white px-4 py-2 rounded-md mb-4 hover:bg-gray-600 transition mt-9 md:w-full sm:w-36"
