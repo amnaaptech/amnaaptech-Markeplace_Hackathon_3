@@ -96,6 +96,13 @@ import { Product, WishlistItem } from "../../../types/product";
 import { getWishlistItems, removeFromWishlist } from "@/app/actions/action";
 import { urlFor } from "@/sanity/lib/image";
 
+// Define a type for wishlist items
+interface WishlistItem {
+  _id: string;
+  name: string;
+  price: number;
+  image: any;}
+
 const WishlistPage = () => {
   const [wishlist, setWishlist] = useState<WishlistItem[]>([]);
   const router = useRouter();

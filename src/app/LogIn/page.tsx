@@ -79,8 +79,6 @@ const HomePage = () => {
         <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-4">
 
           Don&apos;t have an account? <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Sign up</a>
-
-        Don&apos;t have an account? <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Sign up</a>
         </p>
       </div>
     </div>
