@@ -18,28 +18,17 @@
 // }
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState, ReactNode } from "react";
+import ProtectedRoute from "../ProtectedRoute";// Upar wali file ko import karna hai
 
-interface ProtectedRouteProps {
-  children: ReactNode;
-}
-
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const router = useRouter();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (!isLoggedIn) {
-      router.push("/admin");
-    }
-  }, [router]);
-
-  if (!isMounted) return null; // Jab tak mount nahi hota, kuch return na karo
-
-  return <>{children}</>;
+const ProtectedPage = () => {
+  return (
+    <ProtectedRoute>
+      <div>
+        <h1>Protected Page</h1>
+        <p>Only accessible if logged in.</p>
+      </div>
+    </ProtectedRoute>
+  );
 };
 
-export default ProtectedRoute;
+export default ProtectedPage;
