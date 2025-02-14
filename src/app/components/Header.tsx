@@ -39,9 +39,9 @@ const Navbar = () => {
           <Link href="/" className="text-2xl font-bold text-gray-800">
             Avion
           </Link>
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             {/* Search Icon */}
-            <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="p-2 rounded-full">
+            {/* <button onClick={() => setIsSearchOpen(!isSearchOpen)} className="p-2 rounded-full">
               <Image src="/images/search.png" alt="Search Icon" width={22} height={22} />
             </button>
 
@@ -51,13 +51,19 @@ const Navbar = () => {
                 placeholder="Search products..."
                 className="border px-2 py-1 ml-2 transition-all duration-300 focus:outline-none"
               />
-            )}
-  
-   {/* Cart Icon */}
-   <Link href="/Cart" className="relative cursor-pointer">
+            )} */}
+            {/* Cart Icon */}
+              <Link href="/Cart" className="relative cursor-pointer">
               <Image src="/images/cart.png" alt="Cart Icon" width={27} height={27} />
               {cartCount > 0 && <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">{cartCount}</span>}
             </Link>
+                  {/* Wishlist Notification Icon */}
+                  <div className="relative">
+              <Link href="/Wishlist">
+                <Image src="/images/wish.png" alt="wishlist" width={27} height={27} />
+                {wishlistCount > 0 && <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">{wishlistCount}</span>}
+              </Link>
+            </div>
             {/* Hamburger Menu */}
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -93,18 +99,11 @@ const Navbar = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
-            {/* <div className="hidden md:block">
+            <div className="hidden md:block">
               <Link href="/LogIn">
                 <button className="flex items-center px-3 py-2 bg-[#2A254B] text-white text-xs rounded hover:bg-gray-400 mx-2">Signup</button>
               </Link>
-            </div> */}
-
-            <SignInButton>
-  <button className="flex items-center px-3 py-2 bg-[#2A254B] text-white text-xs rounded hover:bg-gray-400 mx-2">
-    Sign In
-  </button>
-</SignInButton>
-
+            </div>
 
 
             {/* Cart Icon */}
