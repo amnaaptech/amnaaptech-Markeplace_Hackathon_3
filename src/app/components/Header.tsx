@@ -6,6 +6,7 @@ import { getWishlistCount } from "@/app/actions/action";
 import { useCartStore } from "../store/cartStore";
 import Link from "next/link";
 import Image from "next/image";
+import { SignInButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [cartCount, setCartCount] = useState<number>(0);
@@ -92,11 +93,19 @@ const Navbar = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <Link href="/LogIn">
                 <button className="flex items-center px-3 py-2 bg-[#2A254B] text-white text-xs rounded hover:bg-gray-400 mx-2">Signup</button>
               </Link>
-            </div>
+            </div> */}
+
+            <SignInButton>
+  <button className="flex items-center px-3 py-2 bg-[#2A254B] text-white text-xs rounded hover:bg-gray-400 mx-2">
+    Sign In
+  </button>
+</SignInButton>
+
+
 
             {/* Cart Icon */}
             <Link href="/Cart" className="relative cursor-pointer">
